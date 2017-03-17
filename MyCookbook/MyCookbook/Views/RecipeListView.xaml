@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCookbook.RecipeListView"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnAddClicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Label FontSize="Large" Text="My Cookbook" HorizontalOptions="Center" FontAttributes="Bold"/>
+        <ListView x:Name="recipeList" ItemsSource="{Binding MyRecipeList}" ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCookbook.RecipeDetailView"
+             Title="Recipe Details">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save Recipe" Clicked="OnSaveClicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Name:" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Start"/>
+            <Entry x:Name="recipeName" Text="{Binding RecipeName}" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Ingredients" VerticalOptions="Center" HorizontalOptions="Start"/>
+            <Button Text="Add Ingredient" Clicked="OnAddClicked" HorizontalOptions="Center"/>
+            <Button Text="Remove Ingredient" Clicked="OnRemoveClicked" HorizontalOptions="End"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="5,0,5,0">
+            <Label Text="Name" FontSize="Medium" HorizontalOptions="StartAndExpand" />
+            <Label Text="Qty" FontSize="Medium" HorizontalOptions="EndAndExpand" />
+            <Label Text="Unit" FontSize="Medium" HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+        <ListView x:Name="recipeItemList" ItemsSource="{Binding IngredientList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Entry Text="{Binding Name}" HorizontalOptions="StartAndExpand"/>
+                            <Entry Text="{Binding Quantity}" HorizontalOptions="EndAndExpand"/>
+                            <Picker Title="Units" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
