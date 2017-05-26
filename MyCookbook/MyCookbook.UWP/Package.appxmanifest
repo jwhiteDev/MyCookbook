@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="7e1ee677-b645-4eb9-8659-4bfba9c8f05f"
+    Name="838d0f00-ebee-422f-a8c4-0023369a515d"
     Publisher="CN=jawh"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="7e1ee677-b645-4eb9-8659-4bfba9c8f05f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="838d0f00-ebee-422f-a8c4-0023369a515d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>MyCookbook.UWP</DisplayName>

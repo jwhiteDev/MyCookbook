@@ -1,4 +1,4 @@
-﻿using MyCookbooks;
+﻿using MyCookbook.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MyCookbook
 {
-    public class CookbookViewModel
+    public class RecipeListViewModel
     {
         public IList<RecipeModel> MyRecipeList { get; set; }
 
-        public CookbookViewModel()
+        public RecipeListViewModel()
         {
             MyRecipeList = new ObservableCollection<RecipeModel>();
         }
@@ -20,7 +20,7 @@ namespace MyCookbook
         internal void SyncData()
         {
             MyRecipeList.Clear();
-            foreach(var r in Database.AppDatabase)
+            foreach (var r in Database.AppDatabase)
             {
                 MyRecipeList.Add(r);
             }

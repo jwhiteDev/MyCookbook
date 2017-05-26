@@ -1,4 +1,4 @@
-﻿using MyCookbooks;
+﻿using MyCookbook.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,14 +10,15 @@ using System.Threading.Tasks;
 
 namespace MyCookbook
 {
-    public class RecipeDetailViewModel : INotifyPropertyChanged
+    public class RecipeDetailsViewModel
     {
         private string _recipeName;
-        public string RecipeName
+        public string Name
         {
             get
             {
-                return _recipeName; }
+                return _recipeName;
+            }
             set
             {
                 if (value != null && _recipeName != value)
@@ -28,19 +29,17 @@ namespace MyCookbook
             }
         }
 
-        public IList<IngredientDetail> IngredientList { get; set; }
+        public IList<IngredientData> IngredientList { get; set; }
 
-        public RecipeDetailViewModel()
+        public RecipeDetailsViewModel()
         {
-            IngredientList = new ObservableCollection<IngredientDetail>();
-            //IngredientList.Add(new IngredientDetail());
-            // = "Pancake";
+            IngredientList = new ObservableCollection<IngredientData>();
         }
 
-        public RecipeDetailViewModel(RecipeModel model)
+        public RecipeDetailsViewModel(RecipeModel model)
         {
-            this.RecipeName = model.Title;
-            IngredientList = model.Ingredients.ToList<IngredientDetail>();
+            this.Name = model.Title;
+            IngredientList = model.Ingredients.ToList<IngredientData>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,10 +53,10 @@ namespace MyCookbook
         internal void SaveData()
         {
             //TODO add validation
-            Database.AppDatabase.Add(new RecipeModel
+            Database.SaveItem(new RecipeModel
             {
                 Title = this._recipeName,
-                Ingredients = this.IngredientList.ToList<IngredientDetail>()
+                Ingredients = this.IngredientList.ToList<IngredientData>()
             });
 
         }

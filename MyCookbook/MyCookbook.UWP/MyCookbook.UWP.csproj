@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{4B7FE4BF-22AB-4A93-A79F-681B0C7AF277}</ProjectGuid>
+    <ProjectGuid>{B637D612-AA36-4043-B090-15CE064FAAEB}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyCookbook.UWP</RootNamespace>
     <AssemblyName>MyCookbook.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -153,7 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyCookbook\MyCookbook.csproj">
-      <Project>{223f5877-9d7e-49c1-a1ca-785d3dd9639b}</Project>
+      <Project>{c4a8607e-de36-4166-8c87-8c994d4cb2a6}</Project>
       <Name>MyCookbook</Name>
     </ProjectReference>
   </ItemGroup>

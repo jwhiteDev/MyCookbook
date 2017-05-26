@@ -1,7 +1,5 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,29 +10,37 @@ using Xamarin.Forms.Xaml;
 namespace MyCookbook
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RecipeDetailView : ContentPage
+    public partial class RecipeDetailsView : ContentPage
     {
-        private RecipeDetailViewModel vm;
-        public RecipeDetailView()
+        private RecipeDetailsViewModel vm;
+
+        public RecipeDetailsView()
         {
             InitializeComponent();
-            vm = new RecipeDetailViewModel();
+            vm = new RecipeDetailsViewModel();
+            this.BindingContext = vm;
+        }
+
+        public RecipeDetailsView(RecipeDetailsViewModel _vm)
+        {
+            InitializeComponent();
+            vm = _vm;
             this.BindingContext = vm;
         }
 
         void OnAddClicked(object sender, EventArgs args)
         {
             //add new item to list view
-            vm.IngredientList.Add(new IngredientDetail());
-            
+            vm.IngredientList.Add(new IngredientData());
+
         }
 
         void OnRemoveClicked(object sender, EventArgs args)
         {
-            if(vm.IngredientList.Count > 0)
+            if (vm.IngredientList.Count > 0)
             {
                 var length = vm.IngredientList.Count;
-                vm.IngredientList.RemoveAt(length-1);
+                vm.IngredientList.RemoveAt(length - 1);
             }
         }
 
@@ -43,6 +49,5 @@ namespace MyCookbook
             vm.SaveData();
             Navigation.PopAsync();
         }
-
     }
 }

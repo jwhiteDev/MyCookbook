@@ -4,7 +4,7 @@
              x:Class="MyCookbook.RecipeListView"
              >
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="OnAddClicked">
+        <ToolbarItem Name="MenuItem1" Text="+" Clicked="OnAddClicked">
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>
