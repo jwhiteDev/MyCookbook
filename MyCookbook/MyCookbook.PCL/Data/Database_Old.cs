@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyCookbook.Data
 {
-    public class Database
+    public class Database_Old
     {
         private static List<RecipeModel> _db;
         public static List<RecipeModel> AppDatabase

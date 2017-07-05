@@ -4,15 +4,18 @@
              x:Class="MyCookbook.RecipeListView"
              >
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuItem1" Text="+" Clicked="OnAddClicked">
-        </ToolbarItem>
+        <ToolbarItem Name="MenuItem1" Text="ADD" Clicked="OnAddClicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
         <Label FontSize="Large" Text="My Cookbook" HorizontalOptions="Center" FontAttributes="Bold"/>
         <ListView x:Name="recipeList" ItemsSource="{Binding MyRecipeList}" ItemSelected="OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Title}"/>
+                    <TextCell Text="{Binding Title}">
+                        <TextCell.ContextActions>
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True"/>
+                        </TextCell.ContextActions>
+                    </TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

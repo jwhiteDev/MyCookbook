@@ -19,6 +19,7 @@ namespace MyCookbook
             InitializeComponent();
 
             vm = new RecipeListViewModel();
+            vm.PopulateDummyData();
             this.BindingContext = vm;
         }
 
@@ -26,6 +27,13 @@ namespace MyCookbook
         {
             //add new item to list view
             await Navigation.PushAsync(new RecipeDetailsView());
+        }
+
+        async void OnDelete(object sender, EventArgs args)
+        {
+            var mi = ((MenuItem)sender);
+            var recipe = ((RecipeModel)mi.CommandParameter);
+            vm.RemoveItem(recipe);
         }
 
         protected override void OnAppearing()
@@ -36,9 +44,13 @@ namespace MyCookbook
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var recipe = e.SelectedItem as RecipeModel;
+            if (((ListView)sender).SelectedItem == null)
+                return;
 
+            var recipe = e.SelectedItem as RecipeModel;
             Navigation.PushAsync(new RecipeDetailsView(new RecipeDetailsViewModel(recipe)));
+            //Clear the selected item
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }

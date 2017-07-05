@@ -53,7 +53,7 @@ namespace MyCookbook
         internal void SaveData()
         {
             //TODO add validation
-            Database.SaveItem(new RecipeModel
+            Database_Old.SaveItem(new RecipeModel
             {
                 Title = this._recipeName,
                 Ingredients = this.IngredientList.ToList<IngredientData>()
