@@ -39,7 +39,7 @@ namespace MyCookbook
         public RecipeDetailsViewModel(RecipeModel model)
         {
             this.Name = model.Title;
-            IngredientList = model.Ingredients.ToList<IngredientData>();
+            IngredientList = new ObservableCollection<IngredientData>(model.Ingredients);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

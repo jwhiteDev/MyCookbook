@@ -16,20 +16,30 @@
             <Button Text="Add Ingredient" Clicked="OnAddClicked" HorizontalOptions="Center"/>
             <Button Text="Remove Ingredient" Clicked="OnRemoveClicked" HorizontalOptions="End"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" Padding="5,0,5,0">
-            <Label Text="Name" FontSize="Medium" HorizontalOptions="StartAndExpand" />
-            <Label Text="Qty" FontSize="Medium" HorizontalOptions="EndAndExpand" />
-            <Label Text="Unit" FontSize="Medium" HorizontalOptions="EndAndExpand" />
-        </StackLayout>
+        <Grid Padding="10,5,10,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Name" FontSize="Medium" HorizontalOptions="StartAndExpand" />
+            <Label Grid.Column="1" Text="Qty" FontSize="Medium" />
+            <Label Grid.Column="2" Text="Unit" FontSize="Medium" />
+        </Grid>
         <ListView x:Name="recipeItemList" ItemsSource="{Binding IngredientList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Entry Text="{Binding Name}" HorizontalOptions="StartAndExpand"/>
-                            <Entry Text="{Binding Quantity}" HorizontalOptions="EndAndExpand"/>
-                            <Picker Title="Units" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}" HorizontalOptions="EndAndExpand"/>
-                        </StackLayout>
+                        <Grid Padding="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry Grid.Column="0" Text="{Binding Name}" />
+                            <Entry Grid.Column="1" Text="{Binding Quantity}" />
+                            <Picker Grid.Column="2" Title="Units" ItemsSource="{Binding Units}" SelectedItem="{Binding SelectedUnit}"/>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
